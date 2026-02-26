@@ -7,7 +7,8 @@ const nextConfig = {
 
   async headers() {
     // Allowed stream/API origins — explicit allowlist, not wildcard
-    const streamOrigins = 'https://stream.radiojar.com https://media.radiojar.com'
+    // Radiojar redirects dynamically to subdomains e.g. n03.radiojar.com via HTTP
+    const streamOrigins = 'https://stream.radiojar.com https://media.radiojar.com https://*.radiojar.com http://*.radiojar.com'
     const apiOrigins = 'https://api.quran.com https://verses.quran.com'
     const analyticsOrigins = 'https://va.vercel-scripts.com https://vitals.vercel-insights.com'
 

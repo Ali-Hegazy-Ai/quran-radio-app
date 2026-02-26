@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://quran-radio.vercel.app/sitemap.xml
+
+# Quran Kareem Radio Egypt
+# https://quran-radio.vercel.app

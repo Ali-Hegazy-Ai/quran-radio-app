@@ -15,32 +15,45 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: 'إذاعة القرآن الكريم مصر بث مباشر | Quran Kareem Radio Egypt Live',
-  description: 'استمع إلى إذاعة القرآن الكريم من مصر بث مباشر على مدار الساعة. Listen to Quran Kareem Radio Egypt live 24/7 — Islamic radio streaming online.',
+  title: {
+    default: 'إذاعة القرآن الكريم مصر بث مباشر | Quran Kareem Radio Egypt Live',
+    template: '%s | إذاعة القرآن الكريم',
+  },
+  description: 'استمع إلى إذاعة القرآن الكريم من مصر بث مباشر على مدار الساعة. تصفح أكثر من 114 سورة وأبرز قراء القرآن. Listen to Quran Kareem Radio Egypt live 24/7 — browse all 114 Surahs and top reciters online.',
   keywords: [
-    'إذاعة القرآن الكريم', 'بث مباشر قرآن كريم', 'راديو القرآن مصر', 'استماع القرآن الكريم مباشر', 'إذاعة اسلامية مباشرة',
-    'Quran Kareem Radio', 'Listen Quran Live', 'Quran Radio Egypt', 'Quran Streaming Online', 'Islamic Radio Live',
+    'إذاعة القرآن الكريم', 'بث مباشر قرآن كريم', 'راديو القرآن مصر',
+    'استماع القرآن الكريم مباشر', 'إذاعة اسلامية مباشرة', 'سور القرآن الكريم',
+    'قراء القرآن', 'عبد الباسط عبد الصمد', 'محمود خليل الحصري', 'مشاري العفاسي',
+    'Quran Kareem Radio', 'Listen Quran Live', 'Quran Radio Egypt',
+    'Quran Streaming Online', 'Islamic Radio Live', 'Quran Reciters',
+    'Surah Al-Baqarah', 'Surah Yaseen', 'Quran MP3 Online', 'Egypt Islamic Radio',
+    'quran audio streaming', 'live quran recitation', 'Abdul Basit quran',
   ],
-  authors: [{ name: 'Quran Kareem Radio' }],
-  robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
+  authors: [{ name: 'Ali Hegazy', url: 'mailto:ali.hegazy.dev.1@gmail.com' }],
+  creator: 'Ali Hegazy',
+  category: 'religion',
+  robots: {
+    index: true, follow: true,
+    googleBot: { index: true, follow: true, 'max-image-preview': 'large', 'max-snippet': -1 },
+  },
   alternates: {
     canonical: SITE_URL,
-    languages: { 'ar': SITE_URL, 'en': SITE_URL },
+    languages: { 'ar': SITE_URL, 'en': SITE_URL, 'x-default': SITE_URL },
   },
   openGraph: {
     title: 'إذاعة القرآن الكريم - مصر | Quran Kareem Radio',
-    description: 'بث مباشر عبر المصدر الرسمي على مدار الساعة. Live Quran radio from Egypt, 24/7.',
+    description: 'بث مباشر عبر المصدر الرسمي على مدار الساعة — 114 سورة وكبار القراء. Live Quran radio from Egypt 24/7, all 114 Surahs & top reciters.',
     type: 'website',
     locale: 'ar_EG',
     alternateLocale: 'en_US',
     url: SITE_URL,
     siteName: 'إذاعة القرآن الكريم',
-    images: [{ url: `${SITE_URL}/og-image.png`, width: 1200, height: 630, alt: 'Quran Kareem Radio Egypt' }],
+    images: [{ url: `${SITE_URL}/og-image.png`, width: 1200, height: 630, alt: 'Quran Kareem Radio Egypt — Live Stream' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'إذاعة القرآن الكريم مصر بث مباشر',
-    description: 'استمع إلى القرآن الكريم بث مباشر من مصر. Listen to Quran live from Egypt.',
+    title: 'إذاعة القرآن الكريم مصر بث مباشر | Quran Radio Live',
+    description: 'استمع إلى القرآن الكريم بث مباشر من مصر — 114 سورة وكبار القراء. Listen live from Egypt.',
     images: [`${SITE_URL}/og-image.png`],
   },
   appleWebApp: {
@@ -53,6 +66,9 @@ export const metadata: Metadata = {
     'geo.placename': 'Cairo, Egypt',
     'geo.position': '30.0444;31.2357',
     'ICBM': '30.0444, 31.2357',
+    'rating': 'general',
+    'revisit-after': '7 days',
+    'language': 'Arabic, English',
   },
 }
 

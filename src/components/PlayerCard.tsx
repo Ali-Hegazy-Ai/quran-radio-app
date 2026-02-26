@@ -15,15 +15,6 @@ import ErrorFallback from './ErrorFallback'
 
 const DEFAULT_STREAM_URL = process.env.NEXT_PUBLIC_STREAM_URL || 'https://stream.radiojar.com/8s5u5tpdtwzuv'
 const OFFICIAL_URL = 'https://misrquran.gov.eg/'
-const CONTACT_EMAIL = 'ali.hegazy.dev.1@gmail.com'
-
-function EmailIcon() {
-  return (
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-      <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
-    </svg>
-  )
-}
 
 interface PlayerCardProps {
   customStreamUrl?: string;
@@ -117,14 +108,15 @@ export default function PlayerCard({ customStreamUrl, customTitle }: PlayerCardP
           </a>
         </div>
 
-        {/* Contact Email */}
+        {/* Contact link */}
         <a
-          href={`mailto:${CONTACT_EMAIL}`}
-          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-accent/10 border border-accent/30 hover:border-accent/60 hover:bg-accent/20 text-accent hover:text-accent transition-all duration-300 text-[13px] font-bold tracking-wide shadow-sm"
-          aria-label="Contact by email"
+          href="/contact"
+          className="inline-flex items-center gap-1.5 text-text-muted/50 hover:text-accent text-[11px] transition-colors"
         >
-          <EmailIcon />
-          <span>{lang === 'ar' ? `تواصل معنا: ${CONTACT_EMAIL}` : CONTACT_EMAIL}</span>
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" className="opacity-70" aria-hidden="true">
+            <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+          </svg>
+          <span>{lang === 'ar' ? 'تواصل معنا' : 'Contact Us'}</span>
         </a>
       </footer>
     </article>

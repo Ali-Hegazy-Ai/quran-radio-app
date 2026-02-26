@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next'
 import { Analytics } from '@vercel/analytics/next'
 import { SpeedInsights } from '@vercel/speed-insights/next'
+import NavBar from '@/components/NavBar'
 import './globals.css'
 
 const SITE_URL = 'https://quran-radio-app.vercel.app'
@@ -125,7 +126,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
         <JsonLd />
       </head>
-      <body className="bg-bg text-text-primary font-cairo antialiased min-h-screen">
+      <body className="bg-bg text-text-primary font-cairo antialiased min-h-screen pt-14 md:pt-16">
+        <NavBar />
         {children}
         <Analytics />
         <SpeedInsights />

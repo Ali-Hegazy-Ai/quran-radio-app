@@ -1,0 +1,24 @@
+# .github/dependabot.yml
+# This file is used to configure GitHub Dependabot
+# Dependabot will automatically create Pull Requests when it finds a security vulnerability or when an update is available for a dependency.
+
+version: 2
+updates:
+  # Enable version updates for npm
+  - package-ecosystem: "npm"
+    # Look for `package.json` and `package-lock.json` in the `root` directory
+    directory: "/"
+    # Check the npm registry for updates every day
+    schedule:
+      interval: "daily"
+    # Open pull requests for security updates as soon as they are found
+    open-pull-requests-limit: 10
+    # Add reviewers to the pull request automatically
+    # reviewers:
+    #   - "username" # You can add your GitHub username here
+    # Allow Dependabot to automatically merge minor/patch updates if CI passes (Requires GitHub Actions configuration)
+    # Target branch (defaults to default branch if not specified)
+    target-branch: "master"
+    labels:
+      - "dependencies"
+      - "security"

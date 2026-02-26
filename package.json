@@ -1,7 +1,7 @@
 {
   "name": "quran-radio-app",
   "version": "1.0.0",
-  "description": "Egypt's official Quran Kareem Radio streaming website",
+  "description": "High-performance Next.js application for streaming Quran Kareem Radio and individual Surah/Reciter recitations.",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -10,7 +10,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "next": "^14.2.35",
+    "next": "^16.1.6",
     "node-fetch": "^3.3.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"

@@ -17,12 +17,12 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: 'إذاعة القرآن الكريم مصر بث مباشر | Quran Kareem Radio Egypt Live',
+    default: 'إذاعة القرآن الكريم من القاهرة بث مباشر | Quran Kareem Radio Live',
     template: '%s | إذاعة القرآن الكريم',
   },
-  description: 'استمع إلى إذاعة القرآن الكريم من مصر بث مباشر على مدار الساعة. تصفح أكثر من 114 سورة وأبرز قراء القرآن. Listen to Quran Kareem Radio Egypt live 24/7 — browse all 114 Surahs and top reciters online.',
+  description: 'الاستماع إلى راديو إذاعة القرآن الكريم من القاهرة بث مباشر MP3 بلا انقطاع على مدار الساعة. تصفح أكثر من 114 سورة وأبرز القراء. Listen to Quran Radio Egypt live stream 24/7.',
   keywords: [
-    'إذاعة القرآن الكريم', 'بث مباشر قرآن كريم', 'راديو القرآن مصر',
+    'إذاعة القرآن الكريم', 'من القاهرة بث مباشر', 'بث مباشر MP3 بلا انقطاع',
     'استماع القرآن الكريم مباشر', 'إذاعة اسلامية مباشرة', 'سور القرآن الكريم',
     'قراء القرآن', 'عبد الباسط عبد الصمد', 'محمود خليل الحصري', 'مشاري العفاسي',
     'Quran Kareem Radio', 'Listen Quran Live', 'Quran Radio Egypt',
@@ -42,19 +42,19 @@ export const metadata: Metadata = {
     languages: { 'ar': SITE_URL, 'en': SITE_URL, 'x-default': SITE_URL },
   },
   openGraph: {
-    title: 'إذاعة القرآن الكريم - مصر | Quran Kareem Radio',
-    description: 'بث مباشر عبر المصدر الرسمي على مدار الساعة — 114 سورة وكبار القراء. Live Quran radio from Egypt 24/7, all 114 Surahs & top reciters.',
+    title: 'إذاعة القرآن الكريم من القاهرة بث مباشر | Quran Kareem Radio',
+    description: 'الاستماع إلى راديو إذاعة القرآن الكريم من القاهرة بث مباشر MP3 بلا انقطاع عبر المصدر الرسمي على مدار الساعة. 114 سورة وكبار القراء.',
     type: 'website',
     locale: 'ar_EG',
     alternateLocale: 'en_US',
     url: SITE_URL,
     siteName: 'إذاعة القرآن الكريم',
-    images: [{ url: `${SITE_URL}/og-image.png`, width: 1200, height: 630, alt: 'Quran Kareem Radio Egypt — Live Stream' }],
+    images: [{ url: `${SITE_URL}/og-image.png`, width: 1200, height: 630, alt: 'إذاعة القرآن الكريم من القاهرة بث مباشر' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'إذاعة القرآن الكريم مصر بث مباشر | Quran Radio Live',
-    description: 'استمع إلى القرآن الكريم بث مباشر من مصر — 114 سورة وكبار القراء. Listen live from Egypt.',
+    title: 'إذاعة القرآن الكريم من القاهرة بث مباشر | Quran Radio Live',
+    description: 'الاستماع إلى راديو إذاعة القرآن الكريم من القاهرة بث مباشر MP3 بلا انقطاع عبر المصدر الرسمي على مدار الساعة.',
     images: [`${SITE_URL}/og-image.png`],
   },
   appleWebApp: {

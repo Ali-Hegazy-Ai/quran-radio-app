@@ -49,8 +49,32 @@ export default function Home() {
 
       <PlayerCard />
 
+      {/* Internal Navigation for SEO Crawlers */}
+      <nav className="max-w-card w-full mx-auto mt-8 px-4 relative z-10 flex flex-col md:flex-row gap-8 text-center md:text-left text-sm" aria-label="Quick Links">
+        <div className="flex-1">
+          <h3 className="text-text-primary font-semibold mb-3 border-b border-border/30 pb-2">Top Surahs</h3>
+          <ul className="space-y-2 text-accent/80">
+            <li><a href="/surah/al-baqarah" className="hover:text-accent transition-colors">Listen to Surah Al-Baqarah</a></li>
+            <li><a href="/surah/yaseen" className="hover:text-accent transition-colors">Listen to Surah Yaseen</a></li>
+            <li><a href="/surah/ar-rahman" className="hover:text-accent transition-colors">Listen to Surah Ar-Rahman</a></li>
+            <li><a href="/surah/al-kahf" className="hover:text-accent transition-colors">Listen to Surah Al-Kahf</a></li>
+            <li><a href="/surah/al-waqi-ah" className="hover:text-accent transition-colors">Listen to Surah Al-Waqi'ah</a></li>
+          </ul>
+        </div>
+
+        <div className="flex-1">
+          <h3 className="text-text-primary font-semibold mb-3 border-b border-border/30 pb-2">Featured Reciters</h3>
+          <ul className="space-y-2 text-accent/80">
+            <li><a href="/reciter/abdul-basit" className="hover:text-accent transition-colors">Abdul Basit 'Abd us-Samad</a></li>
+            <li><a href="/reciter/mahmoud-al-hussary" className="hover:text-accent transition-colors">Mahmoud Khalil Al-Hussary</a></li>
+            <li><a href="/reciter/mishary-alafasy" className="hover:text-accent transition-colors">Mishary Rashid Alafasy</a></li>
+            <li><a href="/reciter/mohamed-el-minshawi" className="hover:text-accent transition-colors">Mohamed Siddiq El-Minshawi</a></li>
+          </ul>
+        </div>
+      </nav>
+
       {/* Crawlable SEO content */}
-      <section className="max-w-card w-full mx-auto mt-8 px-4 relative z-10" aria-label="About">
+      <section className="max-w-card w-full mx-auto mt-12 px-4 relative z-10" aria-label="About">
         <h2 className="text-text-secondary text-sm font-semibold text-center mb-3">
           Quran Kareem Radio — إذاعة القرآن الكريم
         </h2>

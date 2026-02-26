@@ -71,7 +71,7 @@ export default async function ReciterPage({ params }: { params: Promise<{ recite
         <main className="min-h-screen bg-bg flex flex-col items-center justify-start p-4 md:p-8 relative overflow-hidden">
             <script
                 type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c') }}
             />
 
             {/* Decorative Background Matches the Homepage */}

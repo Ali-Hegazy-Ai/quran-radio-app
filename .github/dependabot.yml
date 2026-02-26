@@ -6,6 +6,6 @@ updates:
       interval: "daily"
     target-branch: "master"
     open-pull-requests-limit: 10
-    labels:
-      - "dependencies"
-      - "security"
+    ignore:
+      - dependency-name: "tailwindcss"
+        versions: [">= 4.0.0"]

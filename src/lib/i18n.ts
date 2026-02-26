@@ -3,8 +3,8 @@ const LANG_KEY = 'quran_radio_lang';
 
 export function detectLang(): Lang {
     if (typeof window === 'undefined') return 'ar';
-    try { const s = localStorage.getItem(LANG_KEY); if (s === 'ar' || s === 'en') return s; } catch { }
-    return (navigator.language || '').startsWith('ar') ? 'ar' : 'en';
+    try { const s = localStorage.getItem(LANG_KEY); if (s === 'en') return 'en'; } catch { }
+    return 'ar';
 }
 
 export function saveLang(lang: Lang): void {

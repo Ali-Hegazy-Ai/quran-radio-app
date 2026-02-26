@@ -50,43 +50,42 @@ export default function Home() {
       <PlayerCard />
 
       {/* Internal Navigation for SEO Crawlers */}
-      <nav className="max-w-card w-full mx-auto mt-8 px-4 relative z-10 flex flex-col md:flex-row gap-8 text-center md:text-left text-sm" aria-label="Quick Links">
+      <nav className="max-w-card w-full mx-auto mt-8 px-4 relative z-10 flex flex-col md:flex-row gap-8 text-center md:text-right text-sm" dir="rtl" aria-label="روابط سريعة">
         <div className="flex-1">
-          <h3 className="text-text-primary font-semibold mb-3 border-b border-border/30 pb-2">Top Surahs</h3>
+          <h3 className="text-text-primary font-semibold mb-3 border-b border-border/30 pb-2">أبرز السور</h3>
           <ul className="space-y-2 text-accent/80">
-            <li><a href="/surah/al-baqarah" className="hover:text-accent transition-colors">Listen to Surah Al-Baqarah</a></li>
-            <li><a href="/surah/yaseen" className="hover:text-accent transition-colors">Listen to Surah Yaseen</a></li>
-            <li><a href="/surah/ar-rahman" className="hover:text-accent transition-colors">Listen to Surah Ar-Rahman</a></li>
-            <li><a href="/surah/al-kahf" className="hover:text-accent transition-colors">Listen to Surah Al-Kahf</a></li>
-            <li><a href="/surah/al-waqi-ah" className="hover:text-accent transition-colors">Listen to Surah Al-Waqi'ah</a></li>
+            <li><a href="/surah/al-baqarah" className="hover:text-accent transition-colors">استمع إلى سورة البقرة</a></li>
+            <li><a href="/surah/yaseen" className="hover:text-accent transition-colors">استمع إلى سورة يس</a></li>
+            <li><a href="/surah/ar-rahman" className="hover:text-accent transition-colors">استمع إلى سورة الرحمن</a></li>
+            <li><a href="/surah/al-kahf" className="hover:text-accent transition-colors">استمع إلى سورة الكهف</a></li>
+            <li><a href="/surah/al-waqi-ah" className="hover:text-accent transition-colors">استمع إلى سورة الواقعة</a></li>
           </ul>
         </div>
 
         <div className="flex-1">
-          <h3 className="text-text-primary font-semibold mb-3 border-b border-border/30 pb-2">Featured Reciters</h3>
+          <h3 className="text-text-primary font-semibold mb-3 border-b border-border/30 pb-2">كبار القراء</h3>
           <ul className="space-y-2 text-accent/80">
-            <li><a href="/reciter/abdul-basit" className="hover:text-accent transition-colors">Abdul Basit 'Abd us-Samad</a></li>
-            <li><a href="/reciter/mahmoud-al-hussary" className="hover:text-accent transition-colors">Mahmoud Khalil Al-Hussary</a></li>
-            <li><a href="/reciter/mishary-alafasy" className="hover:text-accent transition-colors">Mishary Rashid Alafasy</a></li>
-            <li><a href="/reciter/mohamed-el-minshawi" className="hover:text-accent transition-colors">Mohamed Siddiq El-Minshawi</a></li>
+            <li><a href="/reciter/abdul-basit" className="hover:text-accent transition-colors">الشيخ عبد الباسط عبد الصمد</a></li>
+            <li><a href="/reciter/mahmoud-al-hussary" className="hover:text-accent transition-colors">الشيخ محمود خليل الحصري</a></li>
+            <li><a href="/reciter/mishary-alafasy" className="hover:text-accent transition-colors">الشيخ مشاري راشد العفاسي</a></li>
+            <li><a href="/reciter/mohamed-el-minshawi" className="hover:text-accent transition-colors">الشيخ محمد صديق المنشاوي</a></li>
           </ul>
         </div>
       </nav>
 
       {/* Crawlable SEO content */}
-      <section className="max-w-card w-full mx-auto mt-12 px-4 relative z-10" aria-label="About">
+      <section className="max-w-card w-full mx-auto mt-12 px-4 relative z-10" aria-label="عن الإذاعة">
         <h2 className="text-text-secondary text-sm font-semibold text-center mb-3">
           Quran Kareem Radio — إذاعة القرآن الكريم
         </h2>
         <div className="text-text-muted/40 text-[10px] leading-relaxed text-center space-y-2">
-          <p>
-            Listen to Quran Kareem Radio Egypt live 24/7. The official Egyptian Quran radio station
-            broadcasts continuous Quran recitation from Cairo, available worldwide through online
-            Islamic radio streaming.
+          <p lang="ar" dir="rtl">
+            استمع إلى إذاعة القرآن الكريم من القاهرة بث مباشر على مدار الساعة 24/7.
+            المحطة الإذاعية الرسمية للقرآن الكريم في مصر تبث تلاوات قرآنية وبرامج إسلامية مستمرة،
+            متاحة لجميع المسلمين حول العالم عبر البث الإسلامي المباشر.
           </p>
           <p lang="ar" dir="rtl">
-            استمع إلى إذاعة القرآن الكريم من مصر بث مباشر على مدار الساعة. بث إسلامي مباشر
-            من القاهرة متاح في جميع أنحاء العالم. راديو القرآن الكريم — تلاوة مستمرة للقرآن الكريم.
+            راديو القرآن الكريم — تلاوة مستمرة للقرآن الكريم بأصوات كبار قراء مصر والعالم الإسلامي.
           </p>
         </div>
         <h3 className="sr-only">Keywords</h3>

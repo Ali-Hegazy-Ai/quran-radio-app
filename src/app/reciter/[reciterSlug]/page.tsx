@@ -9,8 +9,9 @@ export async function generateStaticParams() {
     }))
 }
 
-export async function generateMetadata({ params }: { params: { reciterSlug: string } }): Promise<Metadata> {
-    const reciter = await getReciterBySlug(params.reciterSlug)
+export async function generateMetadata({ params }: { params: Promise<{ reciterSlug: string }> }): Promise<Metadata> {
+    const { reciterSlug } = await params
+    const reciter = await getReciterBySlug(reciterSlug)
 
     if (!reciter) {
         return { title: 'Reciter Not Found' }
@@ -43,8 +44,9 @@ export async function generateMetadata({ params }: { params: { reciterSlug: stri
     }
 }
 
-export default async function ReciterPage({ params }: { params: { reciterSlug: string } }) {
-    const reciter = await getReciterBySlug(params.reciterSlug)
+export default async function ReciterPage({ params }: { params: Promise<{ reciterSlug: string }> }) {
+    const { reciterSlug } = await params
+    const reciter = await getReciterBySlug(reciterSlug)
 
     if (!reciter) {
         return (
@@ -93,22 +95,22 @@ export default async function ReciterPage({ params }: { params: { reciterSlug: s
                         </div>
                     </header>
 
-                    <div className="prose prose-invert max-w-none text-text-secondary leading-relaxed space-y-6">
+                    <div className="prose prose-invert max-w-none text-text-secondary leading-relaxed space-y-6 text-right" dir="rtl">
                         <p>
-                            Welcome to the dedicated streaming page for the honorable Sheikh <strong>{reciter.name}</strong> ({reciter.arabic_name}).
-                            Known for his extraordinary vocal control and spiritual depth, his recitations have moved millions of Muslims worldwide.
+                            مرحباً بك في صفحة البث المباشر المخصصة لفضيلة الشيخ <strong>{reciter.name}</strong>.
+                            عُرف بصوته الخاشع وقراءته المتقنة التي أثرت في الملايين من المسلمين حول العالم.
                         </p>
 
-                        <h3>Listen to {reciter.name}</h3>
+                        <h3>استمع إلى الشيخ {reciter.name}</h3>
                         <p>
-                            The audio player on this page streams Surah Al-Baqarah recited by <strong>{reciter.name}</strong>.
-                            If you wish to listen to the continuous 24/7 transmission of Quran Kareem Radio Egypt, please navigate back to the homepage.
+                            مشغل الصوت في هذه الصفحة يبث سورة البقرة بتلاوة <strong>الشيخ {reciter.name}</strong>.
+                            إذا كنت ترغب في الاستماع إلى البث المستمر لإذاعة القرآن الكريم من القاهرة على مدار الساعة، يرجى العودة إلى الصفحة الرئيسية.
                         </p>
 
-                        <h3>Why Listen to {reciter.name}?</h3>
+                        <h3>عن هذه التلاوة</h3>
                         <p>
-                            His voice perfectly preserves the traditional and profound experience of tuning into Cairo's finest
-                            Qaris. Sit back, reflect, and enjoy the pure recitation.
+                            تلاوته العطرة تحفظ بكل إتقان الروحانية العميقة لمدارس التلاوة المصرية الأصيلة.
+                            استمع، وتدبر، وعش مع هذه التلاوة الخاشعة.
                         </p>
                     </div>
                 </article>

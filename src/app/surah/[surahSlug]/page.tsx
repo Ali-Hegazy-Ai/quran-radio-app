@@ -11,8 +11,9 @@ export async function generateStaticParams() {
 }
 
 // Generate dynamic metadata for SEO
-export async function generateMetadata({ params }: { params: { surahSlug: string } }): Promise<Metadata> {
-    const surah = await getSurahBySlug(params.surahSlug)
+export async function generateMetadata({ params }: { params: Promise<{ surahSlug: string }> }): Promise<Metadata> {
+    const { surahSlug } = await params
+    const surah = await getSurahBySlug(surahSlug)
 
     if (!surah) {
         return { title: 'Surah Not Found' }
@@ -45,8 +46,9 @@ export async function generateMetadata({ params }: { params: { surahSlug: string
     }
 }
 
-export default async function SurahPage({ params }: { params: { surahSlug: string } }) {
-    const surah = await getSurahBySlug(params.surahSlug)
+export default async function SurahPage({ params }: { params: Promise<{ surahSlug: string }> }) {
+    const { surahSlug } = await params
+    const surah = await getSurahBySlug(surahSlug)
 
     if (!surah) {
         return (
@@ -94,29 +96,28 @@ export default async function SurahPage({ params }: { params: { surahSlug: strin
                         </div>
                     </header>
 
-                    <div className="prose prose-invert max-w-none text-text-secondary leading-relaxed space-y-6">
+                    <div className="prose prose-invert max-w-none text-text-secondary leading-relaxed space-y-6 text-right" dir="rtl">
                         <p>
-                            Welcome to the dedicated streaming page for <strong>Surah {surah.name_simple}</strong> ({surah.name_arabic}).
-                            Listening to the Quran provides peace to the heart and guidance to the soul. You are currently tuned into the official
-                            broadcast from Cairo, Egypt.
+                            مرحباً بك في صفحة البث المباشر المخصصة <strong>لسورة {surah.name_arabic}</strong>.
+                            الاستماع إلى القرآن الكريم يبعث السكينة في القلب ويُنير الروح. أنت الآن تستمع إلى البث عبر إذاعة القرآن الكريم.
                         </p>
 
-                        <h3>About Surah {surah.name_simple}</h3>
+                        <h3>عن سورة {surah.name_arabic}</h3>
                         <p>
-                            This beautiful Surah is a <em>{surah.revelation_place}</em> revelation and consists of {surah.verses_count} verses.
-                            Reciting and listening to this Surah is deeply beneficial for believers searching for spiritual clarity and reflection.
+                            هذه السورة المباركة <em>{surah.revelation_place === 'makkah' ? 'مكية' : 'مدنية'}</em> وعدد آياتها {surah.verses_count} آية.
+                            تلاوة والاستماع إلى هذه السورة له فضل عظيم للمؤمنين الباحثين عن الطمأنينة والتدبر.
                         </p>
 
-                        <h3>Audio Streaming</h3>
+                        <h3>البث الصوتي المباشر</h3>
                         <p>
-                            Our player on the right streams the specific <strong>Surah {surah.name_simple}</strong> directly.
-                            If you wish to listen to the continuous 24/7 transmission of Quran Kareem Radio Egypt, please
-                            navigate back to the homepage.
+                            مشغل الصوت على يسار الشاشة يبث <strong>سورة {surah.name_arabic}</strong> مباشرة.
+                            إذا كنت ترغب في الاستماع إلى البث المستمر لإذاعة القرآن الكريم من القاهرة على مدار الساعة، يرجى
+                            العودة إلى الصفحة الرئيسية.
                         </p>
 
                         <p className="text-sm text-text-muted mt-8 pt-4 border-t border-border/30">
-                            Note: The audio player streams an authentic recitation by Mahmoud Khalil Al-Hussary,
-                            one of the most beloved Qaris of the Egyptian radio.
+                            ملاحظة: المشغل يبث التلاوة العطرة بصوت الشيخ محمود خليل الحصري،
+                            أحد أبرز وأحب قراء إذاعة القرآن الكريم المصرية.
                         </p>
                     </div>
                 </article>

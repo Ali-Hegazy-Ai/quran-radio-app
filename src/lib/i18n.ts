@@ -29,7 +29,7 @@ export function saveLang(lang: Lang): void {
 
 const S = {
     // ── Hero / Card ────────────────────────────────────────────────────────────
-    title: { ar: 'إذاعة القرآن الكريم', en: 'Quran Kareem Radio' },
+    title: { ar: 'إذاعة القرآن الكريم بث مباشر', en: 'Quran Kareem Radio Live Stream' },
     country: { ar: 'جمهورية مصر العربية', en: 'Egypt' },
     subtitle: {
         ar: 'بث مباشر من المصدر الرسمي — على مدار الساعة',
@@ -76,12 +76,12 @@ const S = {
 
     // ── Footer ─────────────────────────────────────────────────────────────────
     dua: {
-        ar: 'أسأل الله أن يهديني، فلا تنسوني من دعائكم.',
-        en: 'I ask Allah to guide me — please keep me in your prayers.',
+        ar: 'أسأل الله العظيم أن يهديني ويصلح حالي، فلا تنسوني من صالح دعائكم بظهر الغيب.',
+        en: 'I ask Allah the Almighty to guide me and rectify my affairs — please keep me in your sincere prayers.',
     },
     legal: {
-        ar: 'هذا مشروع مفتوح المصدر وغير تابع لإذاعة القرآن الكريم الرسمية في مصر. جميع حقوق البث محفوظة للمصدر الرسمي، ويهدف هذا المشروع فقط لتسهيل الوصول للبث.',
-        en: 'This is an independent open-source project, not affiliated with the official Egyptian Quran Kareem Radio. All broadcast rights belong to the official source. This project exists solely to make the stream more accessible.',
+        ar: 'هذا مشروع ويب مفتوح المصدر تم تصميمه بجهد شخصي وهو غير تابع لإذاعة القرآن الكريم الرسمية في مصر بأي شكل من الأشكال. جميع حقوق الملكية وحقوق البث محفوظة بالكامل للمصدر الرسمي للإذاعة، ويهدف هذا المشروع التقني فقط إلى تسهيل الوصول للبث الصوتي المباشر عبر الإنترنت وتحسين تجربة الاستماع بصوت نقي.',
+        en: 'This is an independent open-source web project, created through personal effort, and is not affiliated with the official Egyptian Quran Kareem Radio in any capacity. All broadcast rights, intellectual property, and stream ownership belong entirely to the official broadcast source. This technical project exists solely to make the online audio stream more accessible globally and enhance the listening experience.',
     },
     officialSource: {
         ar: 'الموقع الرسمي',

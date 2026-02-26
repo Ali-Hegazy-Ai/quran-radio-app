@@ -69,7 +69,6 @@ export const metadata: Metadata = {
     'ICBM': '30.0444, 31.2357',
     'rating': 'general',
     'revisit-after': '7 days',
-    'language': 'Arabic, English',
   },
 }
 
@@ -127,10 +126,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="ar" dir="rtl">
       <head>
-        <link rel="canonical" href={SITE_URL} />
-        <link rel="alternate" hrefLang="ar" href={SITE_URL} />
-        <link rel="alternate" hrefLang="en" href={SITE_URL} />
-        <link rel="alternate" hrefLang="x-default" href={SITE_URL} />
         <link rel="preconnect" href="https://stream.radiojar.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://stream.radiojar.com" />
         <link rel="apple-touch-icon" href={`${SITE_URL}/apple-touch-icon.png`} />

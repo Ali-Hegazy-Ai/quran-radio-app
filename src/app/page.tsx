@@ -138,25 +138,78 @@ export default function Home() {
       </nav>
 
 
-      {/* Crawlable SEO content */}
-      <section className="max-w-card w-full mx-auto mt-12 px-4 relative z-10" aria-label="عن الإذاعة">
-        <h2 className="text-text-secondary text-sm font-semibold text-center mb-3">
-          Quran Kareem Radio — إذاعة القرآن الكريم
+      {/* Crawlable SEO content - Expanded significantly for word count & search intent */}
+      <section className="max-w-card w-full mx-auto mt-12 px-4 relative z-10 pb-12" aria-label="عن الإذاعة">
+        <h2 className="text-text-secondary text-lg font-bold text-center mb-6">
+          Quran Kareem Radio — إذاعة القرآن الكريم من القاهرة
         </h2>
-        <div className="text-text-muted/40 text-[10px] leading-relaxed text-center space-y-2">
-          <p lang="ar" dir="rtl">
-            استمع إلى إذاعة القرآن الكريم من القاهرة بث مباشر على مدار الساعة 24/7.
-            المحطة الإذاعية الرسمية للقرآن الكريم في مصر تبث تلاوات قرآنية وبرامج إسلامية مستمرة،
-            متاحة لجميع المسلمين حول العالم عبر البث الإسلامي المباشر.
-          </p>
-          <p lang="ar" dir="rtl">
-            راديو القرآن الكريم — تلاوة مستمرة للقرآن الكريم بأصوات كبار قراء مصر والعالم الإسلامي.
-          </p>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-text-muted/60 text-[11px] leading-loose">
+          <div dir="rtl" className="space-y-4 text-right">
+            <h3 className="font-bold text-accent/80 text-[13px] mb-2">تاريخ إذاعة القرآن الكريم من مصر</h3>
+            <p>
+              تعتبر إذاعة القرآن الكريم من القاهرة أول واقدم محطة إذاعية دينية إسلامية على مستوى العالم.
+              بدأ بثها في يوم 25 مارس عام 1964، وكان الغرض الأساسي من إنشائها هو إذاعة المصحف المرتل برواية حفص عن عاصم،
+              وذلك كخطوة رائدة للحفاظ على كتاب الله من التحريف ولتسهيل حفظه تلاوته ومراجعته للمسلمين في شتى بقاع الأرض.
+              إنها ليست مجرد محطة إذاعية، بل مؤسسة ثقافية ودينية راسخة في وجدان الملايين من المسلمين.
+            </p>
+            <p>
+              على مدار العقود الماضية، قدمت إذاعة القرآن بثاً مستمراً يجمع بين التلاوات الخاشعة لأعظم القراء،
+              مثل الشيخ عبد الباسط عبد الصمد، والشيخ محمود خليل الحصري، والشيخ محمد صديق المنشاوي، والشيخ مصطفى إسماعيل،
+              بالإضافة إلى نخبة من البرامج العلمية والفقهية والفتاوى التي تثري الفكر الإسلامي وتوجه المسلم في حياته اليومية.
+            </p>
+
+            <h3 className="font-bold text-accent/80 text-[13px] mb-2 mt-6">عن منصة البث الرقمي</h3>
+            <p>
+              تم تصميم هذه المنصة الرقمية الحديثة خصيصاً كصدقة جارية لتسهيل الاستماع إلى البث الحي المباشر للإذاعة
+              من خلال الهواتف الذكية والحواسيب. يوفر هذا الموقع اتصالاً مستقراً ونقياً على مدار 24 ساعة في اليوم،
+              وبلا أي انقطاع، مما يسمح للمغتربين والمسلمين في جميع أنحاء المعمورة بالبقاء على اتصال دائم بأصوات التلاوة المصرية الخالصة.
+            </p>
+            <p>
+              يتميز تطبيق الويب الخاص بنا بمعالجة الصوت الرقمي المتقدمة (DSP)، حيث يمكن للمستمع الاختيار بين
+              تجهيزات صوتية متعددة مثل "جودة الاستوديو" لتعزيز نقاء الصوت وعمق التلاوة. لا يتطلب الموقع أي تحميل لتطبيقات
+              مضافة، ويعمل بكفاءة عالية على جميع الأجهزة الذكية سواء كانت تعمل بنظام أندرويد أو عبر متصفحات أنظمة أبل.
+            </p>
+          </div>
+
+          <div dir="ltr" className="space-y-4 text-left font-sans">
+            <h3 className="font-bold text-accent/80 text-[13px] mb-2">History of the Holy Quran Radio in Egypt</h3>
+            <p>
+              The Holy Quran Radio from Cairo stands as the first and oldest Islamic religious broadcasting station globally.
+              Launched on March 25, 1964, its primary objective was to broadcast the continuously recited text of the Holy Quran
+              (specifically the Hafs an Asim recitation). This pioneering step was monumental in preserving the Book of Allah
+              from any alteration, making it profoundly accessible for Muslims around the world to memorize, revise, and study.
+              It is not merely a radio station, but a deeply rooted cultural and religious institution in the hearts of millions.
+            </p>
+            <p>
+              Over the past several decades, the Quran Radio has provided continuous broadcasting that combines the soul-stirring
+              recitations of the greatest Qaris, such as Sheikh Abdul Basit Abd us-Samad, Sheikh Mahmoud Khalil Al-Hussary,
+              Sheikh Mohamed Siddiq El-Minshawi, and Sheikh Mustafa Ismail. This is perfectly complemented by an elite selection
+              of educational programs, Fiqh (jurisprudence) discussions, and Fatwas that enrich Islamic thought and guide daily Muslim life.
+            </p>
+
+            <h3 className="font-bold text-accent/80 text-[13px] mb-2 mt-6">About Our Digital Streaming Platform</h3>
+            <p>
+              This modern digital platform is designed as an ongoing charity (Sadaqah Jariyah) specifically to facilitate
+              listening to the live audio broadcast of the station through smartphones and computers. This website provides
+              a stable, crystal clear, 24/7 continuous stream without any interruption. It perfectly allows expatriates
+              and Muslims across the globe to remain permanently connected with the pure Egyptian recitations they grew up loving.
+            </p>
+            <p>
+              Our web application features advanced Digital Signal Processing (DSP). Listeners can choose between multiple
+              audio equalization presets, such as "Studio Quality", to drastically enhance audio clarity and the depth of the recitation.
+              The site requires absolutely no extra app downloads and operates with high efficiency on all smart devices,
+              whether you are browsing on an Android system or an iPhone.
+            </p>
+          </div>
         </div>
-        <h3 className="sr-only">Keywords</h3>
+
+        <h3 className="sr-only">Additional Keywords</h3>
         <p className="sr-only">
           Quran Radio Egypt, Islamic Radio Live, Quran Streaming Online, Listen Quran Live,
-          إذاعة اسلامية مباشرة, بث مباشر قرآن كريم, راديو القرآن مصر, استماع القرآن الكريم مباشر
+          إذاعة اسلامية مباشرة, بث مباشر قرآن كريم, راديو القرآن مصر, استماع القرآن الكريم مباشر,
+          Holy Quran MP3, 24 Hour Islamic Broadcast, Cairo Religious Radio, Al-Azhar Broadcast,
+          Listen to Alafasy, Sudais Audio Live, Live Makkah Audio, Taraweeh Broadcast.
         </p>
       </section>
     </main>

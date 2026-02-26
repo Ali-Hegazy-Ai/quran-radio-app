@@ -124,7 +124,18 @@ export default async function ReciterPage({ params }: { params: Promise<{ recite
                                 reciter.slug === "mahmoud-al-hussary" ? "https://server8.mp3quran.net/husr/002.mp3" :
                                     reciter.slug === "mishary-alafasy" ? "https://server8.mp3quran.net/afs/002.mp3" :
                                         reciter.slug === "mohamed-el-minshawi" ? "https://server10.mp3quran.net/minsh/002.mp3" :
-                                            "https://server8.mp3quran.net/husr/002.mp3"
+                                            reciter.slug === "mustafa-ismail" ? "https://server8.mp3quran.net/mustafa/002.mp3" :
+                                                reciter.slug === "maher-al-muaiqly" ? "https://server12.mp3quran.net/maher/002.mp3" :
+                                                    reciter.slug === "saad-al-ghamdi" ? "https://server7.mp3quran.net/s_gmd/002.mp3" :
+                                                        reciter.slug === "abu-bakr-al-shatri" ? "https://server11.mp3quran.net/shatri/002.mp3" :
+                                                            reciter.slug === "ali-jaber" ? "https://server11.mp3quran.net/a_jbr/002.mp3" :
+                                                                reciter.slug === "yasser-al-dosari" ? "https://server11.mp3quran.net/yasser/002.mp3" :
+                                                                    reciter.slug === "fares-abbad" ? "https://server8.mp3quran.net/frs_a/002.mp3" :
+                                                                        reciter.slug === "abdul-rahman-al-sudais" ? "https://server11.mp3quran.net/sds/002.mp3" :
+                                                                            reciter.slug === "saud-al-shuraim" ? "https://server7.mp3quran.net/shur/002.mp3" :
+                                                                                reciter.slug === "khaled-al-qahtani" ? "https://server10.mp3quran.net/qht/002.mp3" :
+                                                                                    reciter.slug === "shirazad-taher" ? "https://server12.mp3quran.net/shirazad/002.mp3" :
+                                                                                        "https://server8.mp3quran.net/husr/002.mp3" // Default fallback
                         }
                     />
                 </div>

@@ -36,3 +36,8 @@ next-env.d.ts
 
 # test files
 test-slugs.js
+
+# audit output
+audit-output/
+# security audit output
+audit-output/

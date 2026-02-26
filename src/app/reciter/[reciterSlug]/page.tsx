@@ -99,25 +99,32 @@ export default async function ReciterPage({ params }: { params: { reciterSlug: s
                             Known for his extraordinary vocal control and spiritual depth, his recitations have moved millions of Muslims worldwide.
                         </p>
 
-                        <h3>Listen Live to {reciter.name}</h3>
+                        <h3>Listen to {reciter.name}</h3>
                         <p>
-                            The audio player on this page streams the official Egyptian Quran Radio broadcast 24/7.
-                            The station regularly features the magnificent recitations of {reciter.name} alongside other legendary Qaris.
-                            Tune in daily to hear his powerful voice spreading the beautiful words of Allah.
+                            The audio player on this page streams Surah Al-Baqarah recited by <strong>{reciter.name}</strong>.
+                            If you wish to listen to the continuous 24/7 transmission of Quran Kareem Radio Egypt, please navigate back to the homepage.
                         </p>
 
-                        <h3>Why Listen to Quran Radio?</h3>
+                        <h3>Why Listen to {reciter.name}?</h3>
                         <p>
-                            Listening to a continuous radio stream brings blessings to your home or workplace without the need to constantly
-                            select individual tracks. It perfectly preserves the traditional profound experience of tuning into Cairo's finest
-                            Qaris exactly as they are broadcasted to the world.
+                            His voice perfectly preserves the traditional and profound experience of tuning into Cairo's finest
+                            Qaris. Sit back, reflect, and enjoy the pure recitation.
                         </p>
                     </div>
                 </article>
 
                 {/* Right Side: The Player */}
                 <div className="w-full lg:w-[400px] flex-shrink-0 sticky top-8">
-                    <PlayerCard />
+                    <PlayerCard
+                        customTitle={`${reciter.name} - Surah Al-Baqarah`}
+                        customStreamUrl={
+                            reciter.slug === "abdul-basit" ? "https://server7.mp3quran.net/basit/002.mp3" :
+                                reciter.slug === "mahmoud-al-hussary" ? "https://server8.mp3quran.net/husr/002.mp3" :
+                                    reciter.slug === "mishary-alafasy" ? "https://server8.mp3quran.net/afs/002.mp3" :
+                                        reciter.slug === "mohamed-el-minshawi" ? "https://server10.mp3quran.net/minsh/002.mp3" :
+                                            "https://server8.mp3quran.net/husr/002.mp3"
+                        }
+                    />
                 </div>
 
             </div>

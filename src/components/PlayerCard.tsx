@@ -13,7 +13,7 @@ import QualitySelector from './QualitySelector'
 import StatusIndicator from './StatusIndicator'
 import ErrorFallback from './ErrorFallback'
 
-const STREAM_URL = process.env.NEXT_PUBLIC_STREAM_URL || 'https://stream.radiojar.com/8s5u5tpdtwzuv'
+const DEFAULT_STREAM_URL = process.env.NEXT_PUBLIC_STREAM_URL || 'https://stream.radiojar.com/8s5u5tpdtwzuv'
 const OFFICIAL_URL = 'https://misrquran.gov.eg/'
 const GITHUB_URL = 'https://github.com/Ali-Hegazy-Ai/quran-radio-app'
 
@@ -25,11 +25,18 @@ function GitHubIcon() {
   )
 }
 
-export default function PlayerCard() {
+interface PlayerCardProps {
+  customStreamUrl?: string;
+  customTitle?: string;
+}
+
+export default function PlayerCard({ customStreamUrl, customTitle }: PlayerCardProps = {}) {
   const [lang, setLang] = useState<Lang>('ar')
   const [snap, setSnap] = useState<EngineSnapshot>({
     state: 'IDLE', volume: 0.8, muted: false, mode: 'medium', errorCount: 0, dspActive: true,
   })
+
+  const streamUrlToUse = customStreamUrl || DEFAULT_STREAM_URL
 
   useEffect(() => { setLang(detectLang()) }, [])
 
@@ -39,9 +46,9 @@ export default function PlayerCard() {
   }, [lang])
 
   useEffect(() => {
-    const eng = getEngine(); eng.init(STREAM_URL)
+    const eng = getEngine(); eng.init(streamUrlToUse)
     return eng.on(setSnap)
-  }, [])
+  }, [streamUrlToUse])
 
   const handleRetry = useCallback(() => { getEngine().retry() }, [])
   const showError = snap.state === 'ERROR' && snap.errorCount >= 5
@@ -59,7 +66,7 @@ export default function PlayerCard() {
       <div className="w-full px-7 md:px-9 flex flex-col items-center pb-2">
         <DecorativeMotif className="mb-4 animate-float" />
         <h1 className="font-cairo font-extrabold text-text-primary text-[24px] md:text-[28px] leading-snug text-center tracking-tight">
-          {t('title', lang)}
+          {customTitle || t('title', lang)}
         </h1>
         <span className="text-accent font-bold text-base mt-1">{t('country', lang)}</span>
         <p className="text-text-secondary text-[12px] text-center mt-2">{t('subtitle', lang)}</p>
@@ -69,7 +76,7 @@ export default function PlayerCard() {
 
       <section className="w-full px-7 md:px-9" aria-label={lang === 'ar' ? 'مشغل الصوت' : 'Audio Player'}>
         {showError ? (
-          <ErrorFallback onRetry={handleRetry} streamUrl={STREAM_URL} lang={lang} />
+          <ErrorFallback onRetry={handleRetry} streamUrl={streamUrlToUse} lang={lang} />
         ) : (
           <AudioController snapshot={snap} lang={lang} />
         )}

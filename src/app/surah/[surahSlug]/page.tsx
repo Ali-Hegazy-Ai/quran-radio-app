@@ -107,23 +107,26 @@ export default async function SurahPage({ params }: { params: { surahSlug: strin
                             Reciting and listening to this Surah is deeply beneficial for believers searching for spiritual clarity and reflection.
                         </p>
 
-                        <h3>Live Audio Streaming</h3>
+                        <h3>Audio Streaming</h3>
                         <p>
-                            Our player on the right connects directly to the 24/7 transmission of Quran Kareem Radio. While the radio
-                            plays a continuous loop of various Surahs and programs across the day, Surah {surah.name_simple} is frequently
-                            recited by some of the most esteemed Egyptian Qaris, such as Abdul Basit 'Abd us-Samad and Mahmoud Khalil Al-Hussary.
+                            Our player on the right streams the specific <strong>Surah {surah.name_simple}</strong> directly.
+                            If you wish to listen to the continuous 24/7 transmission of Quran Kareem Radio Egypt, please
+                            navigate back to the homepage.
                         </p>
 
                         <p className="text-sm text-text-muted mt-8 pt-4 border-t border-border/30">
-                            Note: The audio player streams the live radio broadcast. Specific tracking to exactly when Surah {surah.name_simple}
-                            plays depends on the live Egyptian schedule.
+                            Note: The audio player streams an authentic recitation by Mahmoud Khalil Al-Hussary,
+                            one of the most beloved Qaris of the Egyptian radio.
                         </p>
                     </div>
                 </article>
 
                 {/* Right Side: The Player */}
                 <div className="w-full lg:w-[400px] flex-shrink-0 sticky top-8">
-                    <PlayerCard />
+                    <PlayerCard
+                        customTitle={`Surah ${surah.name_simple}`}
+                        customStreamUrl={`https://server8.mp3quran.net/husr/${surah.id.toString().padStart(3, '0')}.mp3`}
+                    />
                 </div>
 
             </div>

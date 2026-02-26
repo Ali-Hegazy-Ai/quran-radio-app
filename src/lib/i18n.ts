@@ -3,7 +3,23 @@ const LANG_KEY = 'quran_radio_lang';
 
 export function detectLang(): Lang {
     if (typeof window === 'undefined') return 'ar';
-    try { const s = localStorage.getItem(LANG_KEY); if (s === 'en') return 'en'; } catch { }
+
+    // 1. Respect user's explicit saved preference
+    try {
+        const saved = localStorage.getItem(LANG_KEY);
+        if (saved === 'en') return 'en';
+        if (saved === 'ar') return 'ar';
+    } catch { }
+
+    // 2. No saved preference — detect from browser locale
+    // If primary browser language is English, show English; otherwise default Arabic
+    try {
+        const browserLangs = navigator.languages ?? [navigator.language];
+        const primary = (browserLangs[0] || '').toLowerCase();
+        if (primary.startsWith('en')) return 'en';
+    } catch { }
+
+    // 3. Default: Arabic
     return 'ar';
 }
 

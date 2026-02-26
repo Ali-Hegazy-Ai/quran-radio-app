@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from 'next'
 import { Analytics } from '@vercel/analytics/next'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 import './globals.css'
 
 const SITE_URL = 'https://quran-radio-app.vercel.app'
@@ -127,6 +128,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="bg-bg text-text-primary font-cairo antialiased min-h-screen">
         {children}
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   )

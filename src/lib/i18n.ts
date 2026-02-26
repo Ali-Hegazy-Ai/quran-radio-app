@@ -76,20 +76,21 @@ const S = {
 
     // ── Footer ─────────────────────────────────────────────────────────────────
     dua: {
-        ar: 'أسأل الله العظيم أن يهديني ويصلح حالي، فلا تنسوني من صالح دعائكم بظهر الغيب.',
-        en: 'I ask Allah the Almighty to guide me and rectify my affairs — please keep me in your sincere prayers.',
+        ar: 'أسأل الله العظيم أن يهديني ويصلح حالي. لا تنسوني من صالح دعائكم بظهر الغيب. جزاكم الله خيراً وأثابكم الجنة. ندعو الله أن يتقبل منا ومنكم صالح الأعمال.',
+        en: 'I ask Allah the Almighty to guide me and rectify my affairs. Please keep me in your sincere prayers. May Allah reward you with goodness and Paradise. We pray that Allah accepts our good deeds.',
     },
+    share: { ar: 'شارك الإذاعة', en: 'Share Radio' },
     legal: {
-        ar: 'هذا مشروع ويب مفتوح المصدر تم تصميمه بجهد شخصي وهو غير تابع لإذاعة القرآن الكريم الرسمية في مصر بأي شكل من الأشكال. جميع حقوق الملكية وحقوق البث محفوظة بالكامل للمصدر الرسمي للإذاعة، ويهدف هذا المشروع التقني فقط إلى تسهيل الوصول للبث الصوتي المباشر عبر الإنترنت وتحسين تجربة الاستماع بصوت نقي.',
-        en: 'This is an independent open-source web project, created through personal effort, and is not affiliated with the official Egyptian Quran Kareem Radio in any capacity. All broadcast rights, intellectual property, and stream ownership belong entirely to the official broadcast source. This technical project exists solely to make the online audio stream more accessible globally and enhance the listening experience.',
+        ar: 'هذا مشروع ويب مفتوح المصدر تم تصميمه بجهد شخصي. هذا الموقع غير تابع لإذاعة القرآن الكريم الرسمية في مصر بأي شكل من الأشكال. جميع حقوق الملكية وحقوق البث محفوظة بالكامل للمصدر الرسمي للإذاعة. يهدف هذا المشروع التقني فقط إلى تسهيل الوصول للبث الصوتي المباشر عبر الإنترنت. نسعى من خلال هذه المنصة إلى تحسين تجربة الاستماع بصوت نقي للمسلمين في جميع أنحاء العالم. نتمنى لكم استماعاً خاشعاً ومريحاً.',
+        en: 'This is an independent open-source web project. It is created through personal effort. This site is not affiliated with the official Egyptian Quran Kareem Radio in any capacity. All broadcast rights, intellectual property, and stream ownership belong entirely to the official broadcast source. This technical project exists solely to make the online audio stream more accessible globally. We strive to enhance the listening experience for Muslims worldwide. We hope you enjoy a peaceful and clear audio streaming experience.',
     },
     officialSource: {
-        ar: 'الموقع الرسمي',
-        en: 'Official Website',
+        ar: 'الموقع الرسمي للإذاعة',
+        en: 'Official Radio Website',
     },
     disclaimer: {
-        ar: 'لا أملك أي حقوق على المحتوى المُذاع. جميع الحقوق محفوظة لإذاعة القرآن الكريم — مصر.',
-        en: 'I hold no rights over the broadcast content. All rights reserved — Quran Kareem Radio, Egypt.',
+        ar: 'لا أملك أي حقوق نشر على المحتوى الصوتي المُذاع. جميع حقوق الملكية الفكرية لصوتيات وبرامج إذاعة القرآن الكريم محفوظة للمصدر.',
+        en: 'I hold no copyright over the broadcast audio content. All intellectual property rights for the programs are reserved to the source.',
     },
 
     // ── Language toggle ────────────────────────────────────────────────────────

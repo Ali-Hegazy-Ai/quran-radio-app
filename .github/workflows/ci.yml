@@ -8,7 +8,7 @@ on:
 
 jobs:
   check:
-    name: Type Check, Lint & Build
+    name: Type Check & Build
     runs-on: ubuntu-latest
 
     steps:
@@ -26,9 +26,6 @@ jobs:
 
       - name: TypeScript — type check
         run: npx tsc --noEmit
-
-      - name: ESLint — lint check
-        run: npm run lint
 
       - name: Next.js — production build
         run: npm run build

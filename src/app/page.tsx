@@ -49,29 +49,91 @@ export default function Home() {
 
       <PlayerCard />
 
-      {/* Internal Navigation for SEO Crawlers */}
-      <nav className="max-w-card w-full mx-auto mt-8 px-4 relative z-10 flex flex-col md:flex-row gap-8 text-center md:text-right text-sm" dir="rtl" aria-label="روابط سريعة">
-        <div className="flex-1">
-          <h3 className="text-text-primary font-semibold mb-3 border-b border-border/30 pb-2">أبرز السور</h3>
-          <ul className="space-y-2 text-accent/80">
-            <li><a href="/surah/al-baqarah" className="hover:text-accent transition-colors">استمع إلى سورة البقرة</a></li>
-            <li><a href="/surah/ya-sin" className="hover:text-accent transition-colors">استمع إلى سورة يس</a></li>
-            <li><a href="/surah/ar-rahman" className="hover:text-accent transition-colors">استمع إلى سورة الرحمن</a></li>
-            <li><a href="/surah/al-kahf" className="hover:text-accent transition-colors">استمع إلى سورة الكهف</a></li>
-            <li><a href="/surah/al-waqi-ah" className="hover:text-accent transition-colors">استمع إلى سورة الواقعة</a></li>
+      {/* Featured Surahs & Reciters — styled cards (also crawlable by SEO bots) */}
+      <nav
+        className="max-w-card w-full mx-auto mt-8 px-4 relative z-10 grid grid-cols-1 sm:grid-cols-2 gap-4"
+        dir="rtl"
+        aria-label="روابط سريعة"
+      >
+        {/* Surahs Card */}
+        <div className="card-glass rounded-2xl border border-border/60 overflow-hidden">
+          <div className="flex items-center gap-2.5 px-5 py-3.5 border-b border-border/40 bg-white/[0.02]">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D4A853" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" /><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
+            </svg>
+            <h3 className="text-text-primary font-cairo font-bold text-[14px]">أبرز السور</h3>
+          </div>
+          <ul className="divide-y divide-border/20">
+            {[
+              { href: '/surah/al-baqarah', label: 'سورة البقرة' },
+              { href: '/surah/ya-sin', label: 'سورة يس' },
+              { href: '/surah/ar-rahman', label: 'سورة الرحمن' },
+              { href: '/surah/al-kahf', label: 'سورة الكهف' },
+              { href: '/surah/al-waqi-ah', label: 'سورة الواقعة' },
+            ].map(({ href, label }) => (
+              <li key={href}>
+                <a
+                  href={href}
+                  className="flex items-center justify-between gap-3 px-5 py-2.5 text-[13px] text-text-secondary hover:text-accent hover:bg-white/[0.03] transition-all group"
+                >
+                  <span className="font-semibold">{label}</span>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" className="text-accent/40 group-hover:text-accent transition-colors shrink-0" aria-hidden="true">
+                    <polygon points="5,3 19,12 5,21" />
+                  </svg>
+                </a>
+              </li>
+            ))}
           </ul>
+          <div className="px-5 py-3 border-t border-border/30 bg-white/[0.015]">
+            <a href="/surahs" className="flex items-center justify-center gap-1.5 text-accent/60 hover:text-accent text-[11px] font-semibold transition-colors">
+              عرض جميع السور
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="rotate-180">
+                <polyline points="9 18 3 12 9 6" />
+              </svg>
+            </a>
+          </div>
         </div>
 
-        <div className="flex-1">
-          <h3 className="text-text-primary font-semibold mb-3 border-b border-border/30 pb-2">كبار القراء</h3>
-          <ul className="space-y-2 text-accent/80">
-            <li><a href="/reciter/abdul-basit" className="hover:text-accent transition-colors">الشيخ عبد الباسط عبد الصمد</a></li>
-            <li><a href="/reciter/mahmoud-al-hussary" className="hover:text-accent transition-colors">الشيخ محمود خليل الحصري</a></li>
-            <li><a href="/reciter/mishary-alafasy" className="hover:text-accent transition-colors">الشيخ مشاري راشد العفاسي</a></li>
-            <li><a href="/reciter/mohamed-el-minshawi" className="hover:text-accent transition-colors">الشيخ محمد صديق المنشاوي</a></li>
+        {/* Reciters Card */}
+        <div className="card-glass rounded-2xl border border-border/60 overflow-hidden">
+          <div className="flex items-center gap-2.5 px-5 py-3.5 border-b border-border/40 bg-white/[0.02]">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D4A853" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" />
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87" /><path d="M16 3.13a4 4 0 0 1 0 7.75" />
+            </svg>
+            <h3 className="text-text-primary font-cairo font-bold text-[14px]">كبار القراء</h3>
+          </div>
+          <ul className="divide-y divide-border/20">
+            {[
+              { href: '/reciter/abdul-basit', label: 'الشيخ عبد الباسط عبد الصمد' },
+              { href: '/reciter/mahmoud-al-hussary', label: 'الشيخ محمود خليل الحصري' },
+              { href: '/reciter/mishary-alafasy', label: 'الشيخ مشاري راشد العفاسي' },
+              { href: '/reciter/mohamed-el-minshawi', label: 'الشيخ محمد صديق المنشاوي' },
+            ].map(({ href, label }) => (
+              <li key={href}>
+                <a
+                  href={href}
+                  className="flex items-center justify-between gap-3 px-5 py-2.5 text-[13px] text-text-secondary hover:text-accent hover:bg-white/[0.03] transition-all group"
+                >
+                  <span className="font-semibold">{label}</span>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" className="text-accent/40 group-hover:text-accent transition-colors shrink-0" aria-hidden="true">
+                    <polygon points="5,3 19,12 5,21" />
+                  </svg>
+                </a>
+              </li>
+            ))}
           </ul>
+          <div className="px-5 py-3 border-t border-border/30 bg-white/[0.015]">
+            <a href="/reciters" className="flex items-center justify-center gap-1.5 text-accent/60 hover:text-accent text-[11px] font-semibold transition-colors">
+              عرض جميع القراء
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="rotate-180">
+                <polyline points="9 18 3 12 9 6" />
+              </svg>
+            </a>
+          </div>
         </div>
       </nav>
+
 
       {/* Crawlable SEO content */}
       <section className="max-w-card w-full mx-auto mt-12 px-4 relative z-10" aria-label="عن الإذاعة">

@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
             allow: '/',
             disallow: '/private/',
         },
-        sitemap: 'https://quran-radio.vercel.app/sitemap.xml',
+        sitemap: 'https://quran-radio-app.vercel.app/sitemap.xml',
     }
 }

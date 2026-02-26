@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from 'next'
 import './globals.css'
 
-const SITE_URL = 'https://quran-radio.vercel.app'
+const SITE_URL = 'https://quran-radio-app.vercel.app'
 
 export const viewport: Viewport = {
   width: 'device-width',

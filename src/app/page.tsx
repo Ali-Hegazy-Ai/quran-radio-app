@@ -55,7 +55,7 @@ export default function Home() {
           <h3 className="text-text-primary font-semibold mb-3 border-b border-border/30 pb-2">أبرز السور</h3>
           <ul className="space-y-2 text-accent/80">
             <li><a href="/surah/al-baqarah" className="hover:text-accent transition-colors">استمع إلى سورة البقرة</a></li>
-            <li><a href="/surah/yaseen" className="hover:text-accent transition-colors">استمع إلى سورة يس</a></li>
+            <li><a href="/surah/ya-sin" className="hover:text-accent transition-colors">استمع إلى سورة يس</a></li>
             <li><a href="/surah/ar-rahman" className="hover:text-accent transition-colors">استمع إلى سورة الرحمن</a></li>
             <li><a href="/surah/al-kahf" className="hover:text-accent transition-colors">استمع إلى سورة الكهف</a></li>
             <li><a href="/surah/al-waqi-ah" className="hover:text-accent transition-colors">استمع إلى سورة الواقعة</a></li>

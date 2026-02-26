@@ -13,7 +13,7 @@ import QualitySelector from './QualitySelector'
 import StatusIndicator from './StatusIndicator'
 import ErrorFallback from './ErrorFallback'
 
-const STREAM_URL = process.env.NEXT_PUBLIC_STREAM_URL || ''
+const STREAM_URL = process.env.NEXT_PUBLIC_STREAM_URL || 'https://stream.radiojar.com/8s5u5tpdtwzuv'
 const OFFICIAL_URL = 'https://misrquran.gov.eg/'
 const GITHUB_URL = 'https://github.com/Ali-Hegazy-Ai/quran-radio-app'
 

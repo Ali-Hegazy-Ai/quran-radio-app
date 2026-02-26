@@ -12,45 +12,72 @@ export function saveLang(lang: Lang): void {
 }
 
 const S = {
+    // ── Hero / Card ────────────────────────────────────────────────────────────
     title: { ar: 'إذاعة القرآن الكريم', en: 'Quran Kareem Radio' },
-    country: { ar: 'مصر', en: 'Egypt' },
-    subtitle: { ar: 'بث مباشر عبر المصدر الرسمي', en: 'Live broadcast from the official source' },
+    country: { ar: 'جمهورية مصر العربية', en: 'Egypt' },
+    subtitle: {
+        ar: 'بث مباشر من المصدر الرسمي — على مدار الساعة',
+        en: 'Live 24/7 · Official Egyptian broadcast'
+    },
+
+    // ── Live badge ─────────────────────────────────────────────────────────────
     live: { ar: 'مباشر', en: 'LIVE' },
-    offline: { ar: 'غير مباشر', en: 'Offline' },
-    statusIdle: { ar: 'جاهز للتشغيل', en: 'Ready to play' },
+    offline: { ar: 'غير متصل', en: 'Offline' },
+
+    // ── Player states ──────────────────────────────────────────────────────────
+    statusIdle: { ar: 'جاهز للبث', en: 'Ready · tap to listen' },
     statusBuffering: { ar: 'جاري الاتصال…', en: 'Connecting…' },
-    statusPlaying: { ar: 'جاري البث الآن', en: 'Now streaming' },
+    statusPlaying: { ar: 'يُبثّ الآن ◉', en: 'Now on air ◉' },
     statusPaused: { ar: 'متوقف مؤقتاً', en: 'Paused' },
-    statusError: { ar: 'غير متاح حالياً', en: 'Currently unavailable' },
-    play: { ar: 'تشغيل البث', en: 'Play stream' },
-    pause: { ar: 'إيقاف البث', en: 'Pause stream' },
+    statusError: { ar: 'تعذّر الاتصال بالخادم', en: 'Stream unavailable' },
+
+    // ── Controls ───────────────────────────────────────────────────────────────
+    play: { ar: 'تشغيل', en: 'Play' },
+    pause: { ar: 'إيقاف مؤقت', en: 'Pause' },
     mute: { ar: 'كتم الصوت', en: 'Mute' },
-    unmute: { ar: 'إلغاء كتم الصوت', en: 'Unmute' },
-    volume: { ar: 'مستوى الصوت', en: 'Volume level' },
-    qualityLabel: { ar: 'جودة الصوت', en: 'Audio Quality' },
+    unmute: { ar: 'إعادة الصوت', en: 'Unmute' },
+    volume: { ar: 'مستوى الصوت', en: 'Volume' },
+
+    // ── Quality / DSP ──────────────────────────────────────────────────────────
+    qualityLabel: { ar: 'جودة الصوت', en: 'Stream Quality' },
     low: { ar: 'منخفضة', en: 'Low' },
     medium: { ar: 'متوسطة', en: 'Medium' },
     high: { ar: 'عالية', en: 'High' },
     studio: { ar: 'استوديو', en: 'Studio' },
-    errorTitle: { ar: 'تعذر الاتصال بالبث المباشر', en: 'Unable to connect to live stream' },
-    errorDetail: { ar: 'يرجى التحقق من اتصال الإنترنت والمحاولة مرة أخرى', en: 'Please check your internet and try again' },
-    retry: { ar: 'إعادة المحاولة', en: 'Retry' },
-    openStream: { ar: 'فتح البث مباشرة', en: 'Open stream directly' },
-    dua: { ar: 'أسأل الله أن يهديني، فلا تنسوني من دعائكم.', en: 'I ask Allah to guide me, please remember me in your prayers.' },
+    dspUnavailable: { ar: 'معالجة الصوت غير متاحة', en: 'Audio DSP unavailable in this browser' },
+
+    // ── Error fallback ─────────────────────────────────────────────────────────
+    errorTitle: {
+        ar: 'تعذّر الاتصال بالبث المباشر',
+        en: 'Unable to connect to the live stream'
+    },
+    errorDetail: {
+        ar: 'تحقق من اتصالك بالإنترنت ثم حاول مجدداً',
+        en: 'Check your internet connection and try again'
+    },
+    retry: { ar: 'إعادة المحاولة', en: 'Try again' },
+    openStream: { ar: 'فتح البث مباشرةً', en: 'Open stream directly' },
+
+    // ── Footer ─────────────────────────────────────────────────────────────────
+    dua: {
+        ar: 'أسأل الله أن يهديني، فلا تنسوني من دعائكم.',
+        en: 'I ask Allah to guide me — please keep me in your prayers.',
+    },
     legal: {
-        ar: 'هذا مشروع مفتوح المصدر وغير تابع لإذاعة القرآن الكريم الرسمية في مصر. جميع حقوق البث محفوظة للمصدر الرسمي. هذا المشروع يهدف فقط لتسهيل الوصول للبث.',
-        en: 'This is an open-source project and is NOT affiliated with the official Quran Kareem broadcast in Egypt. All broadcast rights belong to the official source. This project only aims to make the stream more accessible.'
+        ar: 'هذا مشروع مفتوح المصدر وغير تابع لإذاعة القرآن الكريم الرسمية في مصر. جميع حقوق البث محفوظة للمصدر الرسمي، ويهدف هذا المشروع فقط لتسهيل الوصول للبث.',
+        en: 'This is an independent open-source project, not affiliated with the official Egyptian Quran Kareem Radio. All broadcast rights belong to the official source. This project exists solely to make the stream more accessible.',
     },
     officialSource: {
-        ar: 'المصدر الرسمي',
-        en: 'Official Source'
+        ar: 'الموقع الرسمي',
+        en: 'Official Website',
     },
     disclaimer: {
-        ar: 'لا أملك أي حقوق على المحتوى المُذاع. جميع الحقوق محفوظة لإذاعة القرآن الكريم الرسمية — مصر.',
-        en: 'I do not own any rights to the content being broadcast. All rights belong to the official Quran Kareem Radio — Egypt.'
+        ar: 'لا أملك أي حقوق على المحتوى المُذاع. جميع الحقوق محفوظة لإذاعة القرآن الكريم — مصر.',
+        en: 'I hold no rights over the broadcast content. All rights reserved — Quran Kareem Radio, Egypt.',
     },
+
+    // ── Language toggle ────────────────────────────────────────────────────────
     langToggle: { ar: 'EN', en: 'عربي' },
-    dspUnavailable: { ar: 'المعالجة الصوتية غير متاحة', en: 'Audio processing unavailable' },
 } as const;
 
 export type StringKey = keyof typeof S;

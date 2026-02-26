@@ -6,10 +6,10 @@ import type { Lang } from '@/lib/i18n'
 import { t } from '@/lib/i18n'
 
 const modes: { key: QualityMode; descAr: string; descEn: string }[] = [
-    { key: 'low', descAr: 'توفير البيانات · تردد ≤8kHz', descEn: 'Data saver · ≤8kHz bandwidth' },
-    { key: 'medium', descAr: 'متوازن · تصحيح EQ دقيق', descEn: 'Balanced · subtle corrective EQ' },
-    { key: 'high', descAr: 'وضوح معزز · رفع الترددات العالية', descEn: 'Enhanced clarity · high-shelf boost' },
-    { key: 'studio', descAr: 'استوديو · ضغط متوازي + محدد ناعم', descEn: 'Studio · parallel comp + soft limiter' },
+    { key: 'low', descAr: 'توفير البيانات · ضغط عالٍ مناسب للإنترنت البطيء', descEn: 'Data saver · compressed, ideal for slow connections' },
+    { key: 'medium', descAr: 'متوازن · جودة جيدة مع معالجة خفيفة للصوت', descEn: 'Balanced · good quality with light audio correction' },
+    { key: 'high', descAr: 'وضوح معزز · رفع الترددات العالية للتلاوة', descEn: 'Enhanced clarity · high-frequency boost for vocals' },
+    { key: 'studio', descAr: 'معالجة استوديو كاملة · أفضل تجربة استماع', descEn: 'Full studio processing · best listening experience' },
 ]
 
 export default function QualitySelector({ snapshot, lang }: { snapshot: EngineSnapshot; lang: Lang }) {
@@ -25,8 +25,8 @@ export default function QualitySelector({ snapshot, lang }: { snapshot: EngineSn
                         key={key}
                         onClick={() => select(key)}
                         className={`flex-1 py-2 rounded-xl text-[11px] font-semibold transition-all duration-300 ${snapshot.mode === key
-                                ? 'bg-accent/15 text-accent border border-accent/25 shadow-[0_0_12px_rgba(212,168,83,0.06)]'
-                                : 'bg-white/[0.02] text-text-secondary border border-border hover:bg-white/[0.04]'
+                            ? 'bg-accent/15 text-accent border border-accent/25 shadow-[0_0_12px_rgba(212,168,83,0.06)]'
+                            : 'bg-white/[0.02] text-text-secondary border border-border hover:bg-white/[0.04]'
                             }`}
                         aria-pressed={snapshot.mode === key}
                     >

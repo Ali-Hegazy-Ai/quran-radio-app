@@ -42,7 +42,7 @@ A modern, open-source web app for listening to Quran Kareem Radio from Egypt —
 | 🎤 Reciter Pages | Dedicated pages for top reciters (Abdul Basit, Al-Hussary, Alafasy…) |
 | 🎛️ DSP Quality Modes | Low / Medium / High / Studio (Web Audio API) |
 | 📊 Frequency Spectrum | Real-time audio visualizer |
-| 🌐 Bilingual | Arabic (RTL) + English (LTR), auto-detected from browser |
+| 🌐 Bilingual | Arabic (RTL) + English (LTR) — auto-detected by **country** via Vercel geo edge middleware |
 | 🗺️ Navigation | Responsive navbar with Radio, Reciters, Surahs, Contact tabs |
 | 🎨 Premium UI | Glassmorphism, geometric Islamic patterns, micro-animations |
 | 📱 Responsive | Mobile-first, works on all screen sizes |
@@ -92,7 +92,22 @@ The app is fully optimised for search engines and Arabic-speaking audiences:
 
 ---
 
-## 🗂️ Page Structure
+## 🌐 Language Detection
+
+The app uses **server-side geo detection** via Next.js Middleware — the industry-standard approach:
+
+```
+Request → Vercel Edge Middleware
+  1. Lang cookie set? → use it (user's saved preference)
+  2. request.geo.country in Arabic countries? → Arabic
+  3. Otherwise → English (US, UK, EU, etc.)
+  4. No geo? → fall back to Accept-Language header
+  → Set 1-year cookie
+```
+
+**Arabic-speaking countries** (auto-Arabic): EG, SA, AE, KW, QA, BH, OM, JO, LB, SY, IQ, LY, TN, DZ, MA, YE, SD, PS, MR, SO, DJ, KM
+
+User's manual toggle **always wins** and is saved for 1 year.
 
 | URL | Description |
 |---|---|
@@ -176,7 +191,8 @@ src/
 │   └── ErrorFallback.tsx    # Stream error UI
 └── lib/
     ├── audioEngine.ts       # Web Audio API state machine
-    ├── i18n.ts              # Bilingual string map (AR/EN)
+    ├── middleware.ts         # Vercel edge geo detection → lang cookie
+    ├── i18n.ts              # Bilingual string map (AR/EN) + detectLang()
     └── api/
         ├── quran.ts         # Quran.com API wrapper
         └── reciters.ts      # Static reciters list

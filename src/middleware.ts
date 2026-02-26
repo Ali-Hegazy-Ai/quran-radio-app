@@ -38,7 +38,8 @@ export function middleware(request: NextRequest) {
     }
 
     // Detect language from Vercel geo (free at Vercel edge)
-    const country = request.geo?.country ?? ''
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const country: string = (request as any).geo?.country ?? ''
     const lang = ARABIC_COUNTRIES.has(country) ? 'ar' : 'en'
 
     // Fallback: check Accept-Language header if no geo

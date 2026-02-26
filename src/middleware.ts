@@ -31,28 +31,26 @@ const LANG_COOKIE = 'quran_radio_lang'
 export function middleware(request: NextRequest) {
     const response = NextResponse.next()
 
-    // Only set cookie if user hasn't manually chosen a language yet
+    // Respect user's saved preference — never override it
     const existingLang = request.cookies.get(LANG_COOKIE)?.value
     if (existingLang === 'ar' || existingLang === 'en') {
-        return response // Respect saved user preference
+        return response
     }
 
-    // Detect language from Vercel geo (free at Vercel edge)
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const country: string = (request as any).geo?.country ?? ''
-    const lang = ARABIC_COUNTRIES.has(country) ? 'ar' : 'en'
+    // Vercel injects the visitor's country as an HTTP header (no type issues)
+    // Docs: https://vercel.com/docs/edge-network/headers#x-vercel-ip-country
+    const country = request.headers.get('x-vercel-ip-country') ?? ''
 
-    // Fallback: check Accept-Language header if no geo
-    if (!country) {
+    let lang: 'ar' | 'en'
+
+    if (country) {
+        // Country detected — use geo to decide language
+        lang = ARABIC_COUNTRIES.has(country) ? 'ar' : 'en'
+    } else {
+        // No geo header (local dev) — fall back to Accept-Language header
         const acceptLang = request.headers.get('Accept-Language') ?? ''
-        const primaryLang = acceptLang.split(',')[0]?.split(';')[0]?.trim().toLowerCase() ?? ''
-        const detectedLang = primaryLang.startsWith('ar') ? 'ar' : 'en'
-        response.cookies.set(LANG_COOKIE, detectedLang, {
-            path: '/',
-            maxAge: 60 * 60 * 24 * 365, // 1 year
-            sameSite: 'lax',
-        })
-        return response
+        const primary = acceptLang.split(',')[0]?.split(';')[0]?.trim().toLowerCase() ?? ''
+        lang = primary.startsWith('ar') ? 'ar' : 'en'
     }
 
     response.cookies.set(LANG_COOKIE, lang, {
@@ -65,6 +63,6 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-    // Run on all pages except static files and API routes
+    // Run on all pages except Next.js internals and static assets
     matcher: ['/((?!_next/static|_next/image|favicon.ico|.*\\..*).*)'],
 }

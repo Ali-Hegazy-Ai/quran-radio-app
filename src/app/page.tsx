@@ -1,7 +1,10 @@
 'use client'
 import PlayerCard from '@/components/PlayerCard'
+import { useLang } from '@/lib/LanguageProvider'
 
 export default function Home() {
+  const { lang } = useLang()
+  const ar = lang === 'ar'
   return (
     <main className="min-h-screen bg-bg flex flex-col items-center justify-center p-4 relative overflow-hidden">
       {/* Static geometric background — professional, no animations */}
@@ -52,8 +55,8 @@ export default function Home() {
       {/* Featured Surahs & Reciters — styled cards (also crawlable by SEO bots) */}
       <nav
         className="max-w-card w-full mx-auto mt-8 px-4 relative z-10 grid grid-cols-1 sm:grid-cols-2 gap-4"
-        dir="rtl"
-        aria-label="روابط سريعة"
+        dir={ar ? 'rtl' : 'ltr'}
+        aria-label={ar ? 'روابط سريعة' : 'Quick links'}
       >
         {/* Surahs Card */}
         <div className="card-glass rounded-2xl border border-border/60 overflow-hidden">
@@ -61,22 +64,22 @@ export default function Home() {
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D4A853" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
               <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" /><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
             </svg>
-            <h3 className="text-text-primary font-cairo font-bold text-[14px]">أبرز السور</h3>
+            <h3 className="text-text-primary font-cairo font-bold text-[14px]">{ar ? 'أبرز السور' : 'Featured Surahs'}</h3>
           </div>
           <ul className="divide-y divide-border/20">
             {[
-              { href: '/surah/al-baqarah', label: 'سورة البقرة' },
-              { href: '/surah/ya-sin', label: 'سورة يس' },
-              { href: '/surah/ar-rahman', label: 'سورة الرحمن' },
-              { href: '/surah/al-kahf', label: 'سورة الكهف' },
-              { href: '/surah/al-waqi-ah', label: 'سورة الواقعة' },
-            ].map(({ href, label }) => (
+              { href: '/surah/al-baqarah', labelAr: 'سورة البقرة', labelEn: 'Surah Al-Baqarah' },
+              { href: '/surah/ya-sin', labelAr: 'سورة يس', labelEn: 'Surah Ya-Sin' },
+              { href: '/surah/ar-rahman', labelAr: 'سورة الرحمن', labelEn: 'Surah Ar-Rahman' },
+              { href: '/surah/al-kahf', labelAr: 'سورة الكهف', labelEn: 'Surah Al-Kahf' },
+              { href: '/surah/al-waqi-ah', labelAr: 'سورة الواقعة', labelEn: 'Surah Al-Waqi\u2019ah' },
+            ].map(({ href, labelAr, labelEn }) => (
               <li key={href}>
                 <a
                   href={href}
                   className="flex items-center justify-between gap-3 px-5 py-2.5 text-[13px] text-text-secondary hover:text-accent hover:bg-white/[0.03] transition-all group"
                 >
-                  <span className="font-semibold">{label}</span>
+                  <span className="font-semibold">{ar ? labelAr : labelEn}</span>
                   <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" className="text-accent/40 group-hover:text-accent transition-colors shrink-0" aria-hidden="true">
                     <polygon points="5,3 19,12 5,21" />
                   </svg>
@@ -86,8 +89,8 @@ export default function Home() {
           </ul>
           <div className="px-5 py-3 border-t border-border/30 bg-white/[0.015]">
             <a href="/surahs" className="flex items-center justify-center gap-1.5 text-accent/60 hover:text-accent text-[11px] font-semibold transition-colors">
-              عرض جميع السور
-              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="rotate-180">
+              {ar ? 'عرض جميع السور' : 'View all Surahs'}
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className={ar ? 'rotate-180' : ''}>
                 <polyline points="9 18 3 12 9 6" />
               </svg>
             </a>
@@ -101,21 +104,21 @@ export default function Home() {
               <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" />
               <path d="M23 21v-2a4 4 0 0 0-3-3.87" /><path d="M16 3.13a4 4 0 0 1 0 7.75" />
             </svg>
-            <h3 className="text-text-primary font-cairo font-bold text-[14px]">كبار القراء</h3>
+            <h3 className="text-text-primary font-cairo font-bold text-[14px]">{ar ? 'كبار القراء' : 'Top Reciters'}</h3>
           </div>
           <ul className="divide-y divide-border/20">
             {[
-              { href: '/reciter/abdul-basit', label: 'الشيخ عبد الباسط عبد الصمد' },
-              { href: '/reciter/mahmoud-al-hussary', label: 'الشيخ محمود خليل الحصري' },
-              { href: '/reciter/mishary-alafasy', label: 'الشيخ مشاري راشد العفاسي' },
-              { href: '/reciter/mohamed-el-minshawi', label: 'الشيخ محمد صديق المنشاوي' },
-            ].map(({ href, label }) => (
+              { href: '/reciter/abdul-basit', labelAr: 'الشيخ عبد الباسط عبد الصمد', labelEn: 'Sheikh Abdul Basit Abd us-Samad' },
+              { href: '/reciter/mahmoud-al-hussary', labelAr: 'الشيخ محمود خليل الحصري', labelEn: 'Sheikh Mahmoud Khalil Al-Hussary' },
+              { href: '/reciter/mishary-alafasy', labelAr: 'الشيخ مشاري راشد العفاسي', labelEn: 'Sheikh Mishary Rashid Alafasy' },
+              { href: '/reciter/mohamed-el-minshawi', labelAr: 'الشيخ محمد صديق المنشاوي', labelEn: 'Sheikh Mohamed Siddiq El-Minshawi' },
+            ].map(({ href, labelAr, labelEn }) => (
               <li key={href}>
                 <a
                   href={href}
                   className="flex items-center justify-between gap-3 px-5 py-2.5 text-[13px] text-text-secondary hover:text-accent hover:bg-white/[0.03] transition-all group"
                 >
-                  <span className="font-semibold">{label}</span>
+                  <span className="font-semibold">{ar ? labelAr : labelEn}</span>
                   <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" className="text-accent/40 group-hover:text-accent transition-colors shrink-0" aria-hidden="true">
                     <polygon points="5,3 19,12 5,21" />
                   </svg>
@@ -125,8 +128,8 @@ export default function Home() {
           </ul>
           <div className="px-5 py-3 border-t border-border/30 bg-white/[0.015]">
             <a href="/reciters" className="flex items-center justify-center gap-1.5 text-accent/60 hover:text-accent text-[11px] font-semibold transition-colors">
-              عرض جميع القراء
-              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="rotate-180">
+              {ar ? 'عرض جميع القراء' : 'View all Reciters'}
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className={ar ? 'rotate-180' : ''}>
                 <polyline points="9 18 3 12 9 6" />
               </svg>
             </a>

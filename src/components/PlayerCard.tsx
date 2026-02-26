@@ -3,8 +3,8 @@
 import { useEffect, useState, useCallback } from 'react'
 import { getEngine } from '@/lib/audioEngine'
 import type { EngineSnapshot } from '@/lib/audioEngine'
-import { detectLang, t } from '@/lib/i18n'
-import type { Lang } from '@/lib/i18n'
+import { t } from '@/lib/i18n'
+import { useLang } from '@/lib/LanguageProvider'
 import DecorativeMotif from './DecorativeMotif'
 import LanguageToggle from './LanguageToggle'
 import LiveBadge from './LiveBadge'
@@ -22,19 +22,12 @@ interface PlayerCardProps {
 }
 
 export default function PlayerCard({ customStreamUrl, customTitle }: PlayerCardProps = {}) {
-  const [lang, setLang] = useState<Lang>('ar')
+  const { lang, setLang } = useLang()
   const [snap, setSnap] = useState<EngineSnapshot>({
     state: 'IDLE', volume: 0.8, muted: false, mode: 'medium', errorCount: 0, dspActive: true,
   })
 
   const streamUrlToUse = customStreamUrl || DEFAULT_STREAM_URL
-
-  useEffect(() => { setLang(detectLang()) }, [])
-
-  useEffect(() => {
-    const el = document.documentElement
-    el.lang = lang; el.dir = lang === 'ar' ? 'rtl' : 'ltr'
-  }, [lang])
 
   useEffect(() => {
     const eng = getEngine(); eng.init(streamUrlToUse)

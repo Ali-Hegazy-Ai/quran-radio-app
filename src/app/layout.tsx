@@ -40,6 +40,11 @@ export const metadata: Metadata = {
     description: 'استمع إلى القرآن الكريم بث مباشر من مصر. Listen to Quran live from Egypt.',
     images: [`${SITE_URL}/og-image.png`],
   },
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: 'black-translucent',
+    title: 'Quran Radio',
+  },
   other: {
     'geo.region': 'EG',
     'geo.placename': 'Cairo, Egypt',
@@ -56,12 +61,15 @@ function JsonLd() {
     alternateName: 'Quran Kareem Radio Egypt',
     description: 'Egyptian national Quran radio station broadcasting 24/7 live Quran recitation from Cairo.',
     url: SITE_URL,
+    image: `${SITE_URL}/og-image.png`,
     broadcastDisplayName: 'إذاعة القرآن الكريم',
     inLanguage: ['ar', 'en'],
     areaServed: { '@type': 'Country', name: 'Egypt' },
     broadcastFrequency: '98.2 FM',
     genre: 'Religious',
+    priceRange: 'Free',
   }
+
   const webSite = {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
@@ -74,10 +82,23 @@ function JsonLd() {
       'query-input': 'required name=search_term_string',
     },
   }
+
+  const breadcrumb = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [{
+      '@type': 'ListItem',
+      position: 1,
+      name: 'Home',
+      item: SITE_URL
+    }]
+  }
+
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(radioStation) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webSite) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }} />
     </>
   )
 }
@@ -90,11 +111,22 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="alternate" hrefLang="ar" href={SITE_URL} />
         <link rel="alternate" hrefLang="en" href={SITE_URL} />
         <link rel="alternate" hrefLang="x-default" href={SITE_URL} />
-        <link rel="preconnect" href="https://stream.radiojar.com" />
+        <link rel="preconnect" href="https://stream.radiojar.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://stream.radiojar.com" />
+        <link rel="apple-touch-icon" href={`${SITE_URL}/apple-touch-icon.png`} />
+
+        {/* Preload Cairo font for Core Web Vitals (CLS optimization) */}
+        <link
+          rel="preload"
+          href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&amp;display=swap"
+          as="style"
+        />
         <JsonLd />
       </head>
-      <body className="bg-bg text-text-primary font-cairo antialiased min-h-screen">{children}</body>
+      <body className="bg-bg text-text-primary font-cairo antialiased min-h-screen">
+        {children}
+      </body>
     </html>
   )
 }
+
